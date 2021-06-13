@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除默认格式 */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        li {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 导航栏样式 */
+        .top {
+            background: black;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            position: relative;
+            flex-direction: row;
+            font-size: 15px;
+            line-height: 60px;
+            justify-content: space-around;
+        }
+
+        .top a {
+            color: white;
+        }
+
+        .start {
+            width: 20px;
+            height: 20px;
+            clear: both;
+            position: relative;
+            top: 40px;
+            left: -20px;
+            background-image: url(./images/图标.png);
+            background-position: -228px -25px;
+        }
+
+        .top li:nth-child(6),
+        :nth-child(7),
+        :nth-child(8),
+        :nth-child(9) {
+            position: relative;
+            top: -20px;
+            left: 0;
+        }
+
+        .top li:nth-child(2) a {
+            color: orange;
+        }
+
+        .top li:nth-child(2),
+        :nth-child(3),
+        :nth-child(4),
+        :nth-child(5) {
+            font-size: 20px;
+        }
+
+        .top li:nth-child(10),
+        :nth-child(11) {
+            font-size: 17px;
+        }
+
+        .top li:nth-child(1),
+        :nth-child(12) {
+            margin-top: 5px;
+        }
+
+        .top li:nth-child(12) {
+            margin-right: -47px;
+            margin-top: 2px;
+        }
+
+        .top_right_text {
+            width: 180px;
+            color: rgb(153, 152, 152);
+            background-image: url(/images/搜索栏.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+
+        /* 音乐部分样式 */
+        .body {
+            width: 100%;
+            height: 900px;
+        }
+
+        .body_left {
+            height: 500px;
+            position: relative;
+        }
+
+        .body_right {
+            height: 500px;
+            position: relative;
+        }
+
+        .body_left_bottom {
+            width: 60%;
+            height: 500px;
+        }
+
+        .body_left_top {
+            width: 60%;
+            height: 200px;
+            border-bottom: 1px gray solid;
+        }
+
+        .body_left_top div {
+            color: black;
+        }
+
+        .songname {
+            font-size: 30px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        .songdetails a {
+            color: rgb(238, 185, 87);
+        }
+
+        .songdetails {
+            line-height: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .songdetails div:nth-child(2),
+        :nth-child(4),
+        :nth-child(5) {
+            margin-right: 15px;
+        }
+
+        .songtime {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .body_left_bottom {
+            line-height: 60px;
+            margin-top: 20px;
+            font-size: 20px;
+            overflow: scroll;
+        }
+
+        .body_left_bottom li:nth-child(11) {
+            font-size: 20px;
+        }
+
+        .body_left_bottom li:nth-child(6) {
+            color: rgb(238, 185, 87);
+        }
+
+        /* 滚动条设置 */
+        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 16px;
+            background-color: #F5F5F5;
+        }
+
+        /*定义滚动条轨道 内阴影+圆角*/
+        ::-webkit-scrollbar-track {
+            background-color: white;
+        }
+
+        /*定义滑块 内阴影+圆角*/
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: rgba(189, 188, 188, 0.5);
+        }
+
+        /* 专辑图片部分 */
+        .body_right {
+            position: relative;
+            top: -650px;
+            left: 1020px;
+        }
+
+        .body_right_top {
+            height: 300px;
+            width: 300px;
+            border: rgb(206, 204, 204) 1px solid;
+            border-radius: 50%;
+            animation: imgrotate 10s linear infinite;
+            margin-left: 10px;
+        }
+
+        /* 专辑旋转 */
+        @keyframes imgrotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .body_right_top2 {
+            height: 290px;
+            width: 290px;
+            border-radius: 50%;
+            position: relative;
+            left: 4px;
+            top: 4px;
+            overflow: hidden;
+        }
+
+        .body_right_top2 img {
+            height: 290px;
+            width: 290px;
+        }
+
+        .body_right_top3 {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            position: relative;
+            border: rgb(206, 204, 204) solid 1px;
+            left: 115px;
+            top: -180px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .body_right_top4 {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            position: relative;
+            left: 17px;
+            top: 17px;
+            background: rgba(255, 255, 255);
+        }
+
+        /* 进度条部分 */
+        .body_right_middle {
+            height: 100px;
+            display: flex;
+            position: relative;
+            margin-left: -25px;
+        }
+
+        /* 开始 暂停按钮 */
+        .play {
+            width: 40px;
+            height: 40px;
+            background-repeat: no-repeat;
+            background-image: url(./images/图标2.jpg);
+            background-position: -162px -0px;
+            margin-top: 20px;
+        }
+
+        /* 进度条 */
+        #prograssBar {
+            display: inline;
+        }
+
+        .backgroundframe {
+            width: 280px;
+            height: 5px;
+            background: gray;
+            margin-top: 35px;
+            margin-left: 10px;
+        }
+
+        .progressbar {
+            width: 1px;
+            background: yellow;
+            height: 5px;
+        }
+
+        .progressdot {
+            width: 10px;
+            height: 10px;
+            background: yellow;
+            border-radius: 50%;
+            position: relative;
+            top: -8px;
+            left: -1px;
+        }
+
+        /* 时间 */
+        .time {
+            color: rgba(77, 75, 75, 0.5);
+            font-size: 15px;
+            position: relative;
+            top: 25px;
+            left: 15px;
+        }
+
+        /* 静音 */
+        .sound {
+            width: 25px;
+            height: 25px;
+            background-image: url(./images/图标2.jpg);
+            background-repeat: no-repeat;
+            background-position: -42px 0px;
+            position: relative;
+            top: 26px;
+            left: 5px;
+        }
+
+        /* 下载图标 */
+        .body_right_bottom {
+            margin-left: 50px;
+            width: 200px;
+            height: 50px;
+            background: #595891;
+            /* text-align: center; */
+            line-height: 50px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .loadImg {
+            width: 19px;
+            height: 18px;
+            background-image: url(./images/图标2.jpg);
+            background-repeat: no-repeat;
+            position: relative;
+            top: 15px;
+            left: 0;
+        }
+
+        /* 听歌气泡部分 */
+        .record {
+            display: flex;
+            margin-top: 45px;
+            margin-left: -40px;
+        }
+
+        /* 头像 */
+        .headPortrait {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-image: url(./images/郭子仪.jpg);
+            background-size: contain;
+            position: relative;
+            top: 10px;
+        }
+
+        /* 气泡框 */
+        .bubbleImgBox {
+            display: flex;
+            margin-left: 20px;
+        }
+
+        .bubble_left {
+            width: 15px;
+            height: 15px;
+            background: gainsboro;
+            transform: rotate(-45deg);
+            position: relative;
+            top: 27px;
+            left: 15px;
+        }
+
+        .bubble {
+            width: 250px;
+            height: 70px;
+            line-height: 35px;
+            font-size: 15px;
+            border-radius: 20px;
+            background: gainsboro;
+            margin-left: 20px;
+            position: relative;
+            left: -15px;
+        }
+
+        .bubble li:nth-child(2) {
+            /* color: rgb(153, 152, 152); */
+            position: relative;
+            top: -3px;
+        }
+
+        .bubble li:nth-child(1) {
+            color: rgb(153, 152, 152);
+            position: relative;
+            left: -50px;
+        }
+
+        .bubbleImg {
+            height: 20px;
+            width: 20px;
+            background-image: url(./images/播放音乐未点击.png);
+            background-size: cover;
+        }
+
+        .bubble a {
+            color: purple;
+            font-size: 15px;
+            float: right;
+            position: relative;
+            top: -35px;
+            left: -10px;
+        }
+
+        /* 评论部分 */
+        .bottom {
+            width: 900px;
+            height: 700px;
+            margin-left: 200px;
+        }
+
+        .bottom_top {
+            height: 250px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .bottom_top_text {
+            font-size: 15px;
+            border-bottom: gray 1px solid;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .bottom_headPortrait {
+            height: 60px;
+            width: 60px;
+            background-image: url(./images/郭子仪.jpg);
+            background-size: contain;
+            clear: both;
+            float: left;
+        }
+
+        .bottom_top input {
+            width: 815px;
+            height: 120px;
+            margin-left: 20px;
+        }
+
+        .smile {
+            width: 17px;
+            height: 17px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url(./images/笑脸.png);
+            margin-left: 80px;
+            margin-top: 10px;
+            clear: both;
+            float: left;
+        }
+
+        .bottom_top_btnbox {
+            font-size: 15px;
+            line-height: 50px;
+            margin-left: 720px;
+        }
+
+        /* 评论列表部分 */
+        .bottom_bot_text {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            border-bottom: black 1px solid;
+        }
+
+        .bottom_top_btn {
+            width: 70px;
+            height: 30px;
+            margin-left: 10px;
+            color: white;
+            background: orange;
+            border: none;
+        }
+
+        .bottom_box_box {
+            height: 70px;
+            width: 900px;
+            border-bottom: black dashed 1px;
+        }
+
+        .bottom_box_headPortrait img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .bottom_box_leftBox {
+            width: 100%;
+            position: relative;
+            top: -70px;
+        }
+
+        .bottom_box_reply,
+        .bottom_box_share {
+            float: right;
+            position: relative;
+            top: -20px;
+        }
+
+        .bottom_box_share {
+            position: absolute;
+            left: 845px;
+            top: 10px;
+        }
+
+        .bottom_box_name,
+        .bottom_box_content,
+        .bottom_box_time {
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            font-size: 17px;
+        }
+
+        .bottom_box_time {
+            position: absolute;
+            top: 55px;
+        }
+
+        .bottom_box_content {
+            position: absolute;
+            top: 35px;
+        }
+
+        .bottom_box_time,
+        .bottom_box_reply,
+        .bottom_box_share {
+            font-size: 13px;
+        }
+
+        .bottom_box_reply {
+            position: absolute;
+            left: 770px;
+            top: 45px;
+        }
+
+
+        /* 分页 */
+        #pageBox {
+            height: 100px;
+            width: 1200px;
+            text-align: center;
+            margin-top: 30px;
+            line-height: 60px;
+        }
+
+        #pageBox a {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--导航栏 -->
+    <div class="top">
+        <li><img src="./images/logo.jpg" alt=""></li>
+        <li><a href="">首页</a></li>
+        <li><a href="">榜单</a></li>
+        <li><a href="">歌手</a></li>
+        <li><a href="">下载酷我客户端</a></li>
+        <li><a href="">
+                <div class="start"></div> 美女秀
+            </a></li>
+        <li><a href="">
+                <div class="start"></div>酷我耳机
+            </a></li>
+        <li><a href="">
+                <div class="start"></div>VIP会员
+            </a></li>
+        <li><a href="">
+                <div class="start"></div>i听
+            </a></li>
+        <li><a href="">更多服务</a></li>
+        <li><a href="">登录</a></li>
+        <li>^</li>
+        <li class="top_right_text">找到好音乐</li>
+    </div>
+
+    <!-- 音乐播放部分 -->
+    <div class="body">
+        <div clsaa="body_left">
+            <div class="body_left_top">
+                <!--歌曲详情 -->
+                <div class="songname">喜羊羊</div>
+                <!--歌曲名称 -->
+                <div class="songdetails">
+                    <div>专辑：</div>
+                    <div><a href="">儿歌大全</a></div>
+                    <div>歌手：</div>
+                    <div><a href="">华语群星</a></div>
+                    <div>分享</div>
+                    <div><a href="">评论</a></div>
+                </div>
+                <div class="songtime">
+                    <div>上传时间:</div>
+                    <div>2015-10-02</div>
+                    <div>歌曲来源:</div>
+                    <div>民大相思湖网球社</div>
+                </div>
+            </div>
+            <div class="body_left_bottom">
+                <!--歌词部分 -->
+                <li>喜羊羊 美羊羊 懒羊羊 沸羊羊 </li>
+                <li>慢羊羊 软绵绵 红太狼 灰太狼 </li>
+                <li>别看我只是一只羊 </li>
+                <li>绿草因为我变得更香 </li>
+                <li>天空因为我变得更蓝</li>
+                <li>白云因为我变得柔软 </li>
+                <li>有什么难题 去牵绊我 都不会去心伤</li>
+                <li>有什么危险 在我面前 也不会去慌乱</li>
+                <li>就算有狼群 把我追捕 也当做游戏一场 </li>
+                <li>在什么时间 都爱开心 笑容都会飞翔 </li>
+                <li>就算会摔倒 站了起来 永远不会沮丧 </li>
+                <li>在所有天气 拥有叫人 大笑的力量 </li>
+            </div>
+        </div>
+        <div class="body_right">
+            <div class="body_right_top">
+                <!--专辑图片 -->
+                <div class="body_right_top2">
+                    <!--外测阴影 -->
+                    <img src="./images/喜羊羊.jpg" alt="">
+                    <div class="body_right_top3">
+                        <!--内测阴影 -->
+                        <div class="body_right_top4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="body_right_middle">
+                <!--进度条部分 -->
+                <audio autoplay="autoplay" id="mymusic">
+                    <!--音乐 -->
+                    <source src="./李志 - 米店.mp3" type="audio/mp3">
+                </audio>
+                <div class="play" id="play"></div>
+                <!--暂停按钮 -->
+                <div id="prograssBar">
+                    <!--进度条大盒子 -->
+                    <div class="backgroundframe">
+                        <!--进度条框 -->
+                        <div class="progressbar" id="progressbar"></div>
+                        <!--进度条条 -->
+                        <div class="progressdot" id="progressdot"></div>
+                        <!--进度条点 -->
+                    </div>
+                </div>
+                <div class="time" id="time">00:00</div>
+                <!--时间 -->
+                <div class="sound" id="sound"></div>
+                <!--静音按钮 -->
+            </div>
+            <div class="body_right_bottom">
+                <div class="loadImg"></div>
+                <!--下载图标 -->
+                <div class="loadText">免费下载这首歌</div>
+            </div>
+            <!--下载图标 -->
+            <div class="record">
+                <!--听歌气泡 -->
+                <div class="headPortrait "></div>
+                <!--头像 -->
+                <div class="bubble_left"></div>
+                <div class="bubble">
+                    <!--气泡 -->
+                    <li>郭子仪——H5班</li>
+                    <div class="bubbleImgBox">
+                        <div class="bubbleImg"></div>
+                        <li>喜羊羊与灰太狼</li>
+                    </div>
+                    <a href="">去现场></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 评论部分 -->
+    <div class="bottom">
+        <div class="bottom_top">
+            <!--评论输入框部分 -->
+            <div class="bottom_top_text">评论 &nbsp;&nbsp; 1703条评论</div>
+            <div class="bottom_headPortrait"></div>
+            <!--评论框处头像 -->
+            <div><input id="note_text" type="text" name="textfield" placeholder="分享你的音乐见解"></div>
+            <!--评论输入框 -->
+            <div class="smile"></div>
+            <!--笑脸图标 -->
+            <div id="add_button" class="bottom_top_btnbox">已输入0个字<button class="bottom_top_btn" id="btn"
+                    onclick="saveStorage('note_text');">评论</button></div>
+        </div>
+        <div class="bottom_bot">
+            <!--评论列表 -->
+            <div class="bottom_bot_text">精彩评论</div>
+            <div>
+                <div class="bottom_box">
+                    <!-- <ul>    //添加评论后的结构
+                            <div class="bottom_box_box">
+                                <div class="bottom_box_headPortrait" style="float: left; clear:both;">头像</div>
+                                <div class="bottom_box_leftBox">
+                                    <li class="bottom_box_name">name</li>
+                                    <li class="bottom_box_content">content</li>
+                                    <li class="bottom_box_time">time</li>
+                                </div>
+                            </div>
+                        </ul>  -->
+                    <div id="msg"></div>
+                    <div id="pageBox"></div>
+                    <!--分页效果 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var mymusic = document.getElementById("mymusic");
+    var play = document.getElementById("play");
+    var progressbar = document.getElementById("progressbar");
+    var progressdot = document.getElementById("progressdot");
+    var playTime = document.getElementById("time");
+    var soune = document.getElementById("sound");
+    var btn = document.getElementById("btn");
+    var pageBox = document.getElementById("pageBox");
+
+    //点击开始、暂停按钮图标切换，音乐播放、暂停
+    var count = 1;
+    play.onclick = function () {
+        ++count;
+        if (count % 2 == 0) {
+            mymusic.pause();
+            play.style.backgroundPosition = "-207px -48px";
+        }
+        else {
+            mymusic.play();
+            play.style.backgroundPosition = "-162px -0px";
+        }
+    }
+
+    //进度条
+    setInterval(function () {
+        progressbar.style.width = mymusic.currentTime / mymusic.duration * 280 + "px";
+        progressdot.style.left = mymusic.currentTime / mymusic.duration * 280 + "px";
+    }, 500)
+
+    //时间
+    var mins, seconds, time, min;
+    setInterval(function () {
+        time = Math.floor(mymusic.currentTime);
+        if (mymusic.currentTime >= 60) {
+            min = time / 60;
+            mins = parseInt(min);
+        } else {
+            mins = 0;
+        }
+        if (mins < 10) {
+            mins = "0" + mins;
+        }
+        seconds = time % 60;
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        playTime.innerHTML = mins + ":" + seconds;
+    }, 1000)
+
+    //静音设置
+    var count1 = 1;
+    sound.onclick = function () {
+        ++count1;
+        var musicVolum = mymusic.volum;
+        if (count1 % 2 == 0) {
+            mymusic.volume = false;
+        }
+        else {
+            mymusic.volume = true;
+        }
+    }
+
+    //获取当前时间函数
+    function gettime() {
+        var time = new Date();
+        var hour = time.getHours();
+        var min = time.getMinutes();
+        var sec = time.getSeconds();
+        var madetime = time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate() + "  " + hour + (min < 10 ? ":0" : ":") + min + (sec < 10 ? ":0" : ":") + sec;
+        return madetime;
+    }
+
+    //新增评论函数
+    function saveStorage(id) {
+        var data = document.getElementById(id).value;//获取input的value值
+        var time = gettime(); //获取当前时间
+        //将当前时间作为键名，input的value的值作为键值
+        localStorage.setItem(time, data);
+        //显示评论
+        showMsg("msg");
+    }
+
+    //showMsg是一个显示评论的函数
+    function showMsg(id) {
+        var result = '<div>';
+        var name = "葡萄成熟时";
+        //遍历本地储存数据
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);//获取key值
+            var value = localStorage.getItem(key);//获取value值
+            result += '<div class="bottom_box_box"><div class="bottom_box_headPortrait"><img class="img" src="./images/郭子仪.jpg"></div><div class="bottom_box_leftBox"><li class="bottom_box_name" style="color: orange;">' + name + '</li><li class="bottom_box_share" >分享</li> <li class="bottom_box_content">' + value + '</li><li class="bottom_box_time">' + key + '</li><li class="bottom_box_reply">删除  280👍 回复</li></div></div>';//显示数据
+        }
+        result += "</div>";
+        var target = document.getElementById(id);
+        target.innerHTML = result;
+    }
+    showMsg("msg");//显示评论
+    //删除评论
+    // function clear(){
+    //     localStorage.removeItem(localStorage.key(localStorage.length - 1));
+    //     ahowMsg("msg");
+    // }
+
+    //分页
+    window.onload = function () {
+        page({
+            id: 'pageBox',
+            nowNum: 1,
+            allNum: 17,
+        })
+    }
+    function page(obj) {
+        if (!obj.id) {
+            return false;
+        }
+        var obj1 = document.getElementById(obj.id);
+        nowNum = obj.nowNum || 1,
+            allNum = obj.allNum || 5,
+            callback = obj.callback || function () { };
+        if (nowNum >= 1) {
+            var oA = document.createElement('a');
+            oA.style.width = "20px";
+            oA.style.height = "20px";
+            oA.style.borderRadius = "50%";
+            oA.style.backgroundColor = "rgb(196 191 191 / 50%)";
+            oA.style.top = "10px";
+            oA.href = '#' + (nowNum - 1);
+            oA.innerHTML = '<';
+            obj1.appendChild(oA);
+        }
+        if (allNum <= 5) {
+            for (var i = 1; i < allNum; i++) {
+                var oA = document.createElement('a');
+                oA.style.width = "20px";
+                oA.style.height = "20px";
+                oA.style.borderRadius = "50%";
+                oA.style.backgroundColor = "rgb(196 191 191 / 50%)";
+                if (nowNum == i) {
+                    oA.innerHTML = i;
+                } else {
+                    oA.innerHTML = i;
+                }
+                obj1.appendChild(oA);
+            }
+        } else {
+            for (var i = 1; i <= 5; i++) {
+                var oA = document.createElement('a');
+                oA.style.width = "20px";
+                oA.style.height = "20px";
+                oA.style.borderRadius = "50%";
+                oA.style.backgroundColor = "rgb(196 191 191 / 50%)";
+                oA.style.top = "10px";
+                if (nowNum == 1 || nowNum == 2) {
+                    oA.href = '#' + i;
+                    if (nowNum == i) {
+                        oA.innerHTML = i;
+                        oA.style.backgroundColor = "orange";
+                        oA.style.color = "white";
+                    } else {
+                        oA.innerHTML = i;
+                    }
+                } else if ((allNum - nowNum) == 0 || (allNum - nowNum) == 1) {
+                    oA.href = '#' + (allNum - 5 + i);
+                    if ((allNum - nowNum) == 0 && i == 5) {
+                        oA.innerHTML = (allNum - 5 + i);
+                    } else if ((allNum - nowNum) == 1 && i == 4) {
+                        oA.innerHTML = (allNum - 5 + i);
+                    }
+                    else {
+                        oA.innerHTML = (allNum - 5 + i);
+                    }
+                } else {
+                    oA.href = '#' + (nowNum - 3 + i);
+                    if (i == 3) {
+                        oA.innerHTML = (nowNum - 3 + i);
+                        oA.style.backgroundColor = "orange";
+                        oA.style.color = "white";
+                    } else {
+                        oA.innerHTML = (nowNum - 3 + i);
+                    }
+                }
+                obj1.appendChild(oA);
+            }
+        }
+        if (nowNum >= 1) {
+            var oA = document.createElement('a');
+            oA.href = '#' + (nowNum + 1);
+            oA.innerHTML = '>';
+            oA.style.width = "20px";
+            oA.style.height = "20px";
+            oA.style.borderRadius = "50%";
+            oA.style.backgroundColor = "rgb(196 191 191 / 50%)";
+            oA.style.top = "10px";
+            obj1.appendChild(oA);
+        }
+        var aA = obj1.getElementsByTagName('a');
+        for (var i = 0; i < aA.length; i++) {
+            aA[i].onclick = function () {
+                var nowNum = parseInt(this.getAttribute('href').substring(1));
+                obj1.innerHTML = '';
+                page({
+                    id: obj.id,
+                    nowNum: nowNum,
+                    allNum: allNum
+                })
+                return false;
+            }
+        }
+    }
+</script>
+
+</html>
